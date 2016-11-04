@@ -1,0 +1,16 @@
+<div class="container">
+
+<div class="well">
+  <%= @story.body %>
+  <br>
+  <br>
+
+  <a href="#" class="btn btn-success btn-xs">Caraca que Historia Incrível</a><span class="text-success">(1240)</span>
+  <a href="#" class="btn btn-warning btn-xs">Acho que é Mentira</a><span class="text-warning">(28)</span>
+  <a href="#" class="btn btn-link btn-xs">Comentarios</a><small><em>(330)</em></small>
+  <p>
+    <small class="text-muted pull-left" style="margin-top: 15px;"> Criado por: <%= @story.user.name %> na <%= @story.created_at.strftime('%A, %e %B %Y') %></small>
+  </p>
+  <br>
+</div>
+</div>

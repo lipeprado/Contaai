@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Conta Aí</a>
+      <%= link_to 'ContaAí', root_path, class: "navbar-brand" %>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -22,8 +22,16 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Cadastrar</a></li>
-        <li><a href="#">Entrar</a></li>
+        <% if user_signed_in? %>
+        
+        <li><%= link_to 'Editar Conta', edit_user_registration_path %></li>
+          <li><%= link_to 'Sair', destroy_user_session_path, method: :delete %></li>
+
+        <% else %>
+        <li><%= link_to 'Cadastrar', new_user_registration_path %></li>
+        <li><%= link_to 'Entrar', new_user_session_path %></li>
+
+        <% end %>
       </ul>
     </div>
   </div>

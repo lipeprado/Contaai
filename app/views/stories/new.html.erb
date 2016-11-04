@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="col-md-12">
+    <div class="form-area">
+      <h3>Crie Sua Historia</h3>
+      <%= form_for @story do |f| %>
+        <div class="form-group">
+          <%= f.text_area :body, rows: 10, class: "form-control", placeholder: 'Conte-nos sua historia...' %>
+        </div>
+          <%= f.submit class: "btn btn-primary btn-block" %>
+      <% end %>
+    </div>
+  </div>
+</div>

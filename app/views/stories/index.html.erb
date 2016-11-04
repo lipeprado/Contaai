@@ -2,43 +2,43 @@
 
 <div class="container">
   <p>
-    <a class="btn btn-primary" >
-      Envie Sua Historia Agora!
-    </a>
+    <%= link_to 'Envie sua Historia Agora', new_story_path, class: "btn btn-primary" %>
+
   </p>
 
   <div class="row">
     <div class="col-md-8">
+      <% @stories.each do |story| %>
       <div class="well">
-        <h3>O dia em que Eu sai de casa!</h3>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <%= story.body %>
         <br>
         <br>
-        <a href="#" class="btn btn-warning btn-xs">Acho que é Mentira</a><span class="text-warning">(28)</span>
-        <a href="#" class="btn btn-success btn-xs">Caraca que Historia Incrível</a><span class="text-success">(1240)</span>
+        <%= link_to 'Caraca! Que Historia Incrível', like_story_path(story), method: :put, class: "btn btn-success btn-xs" %><span class="text-success">( <%= story.get_upvotes.size %> )</span>
+        <%= link_to 'Acho que é Mentira!', like_story_path(story), method: :put, class: "btn btn-warning btn-xs" %>
+        <span class="text-success"> ( <%= story.get_downvotes.size %> )</span>
+
         <a href="#" class="btn btn-link btn-xs">Comentarios</a><small><em>(330)</em></small>
-        <small class="text-muted pull-left"> Criado por: Filipe Prado em 03/11/2016 as 15:26</small>
+        <br>
+        <p>
+          <small class="text-muted pull-left" style="margin-top: 15px;"> Criado por: <%= story.user.name %> na <%= story.created_at.strftime('%A, %e %B %Y') %></small>
+        </p>
+
+        <br>
       </div>
-      <div class="well">
-        <h3>Clovis, O Açougueiro</h3>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        <br>
-        <br>
-        <a href="#" class="btn btn-warning btn-xs">Acho que é Mentira</a><span class="text-warning">(28)</span>
-        <a href="#" class="btn btn-success btn-xs">Caraca que Historia Incrível</a><span class="text-success">(1240)</span>
-        <a href="#" class="btn btn-link btn-xs">Comentarios</a><small><em>(330)</em></small>
-        <small class="text-muted pull-left"> Criado por: Filipe Prado em 03/11/2016 as 15:26</small>
-      </div>
-      <div class="well">
-        <h3>Cai da Cama.</h3>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        <br>
-        <br>
-        <a href="#" class="btn btn-warning btn-xs">Acho que é Mentira</a><span class="text-warning">(28)</span>
-        <a href="#" class="btn btn-success btn-xs">Caraca que Historia Incrível</a><span class="text-success">(1240)</span>
-        <a href="#" class="btn btn-link btn-xs">Comentarios</a><small><em>(330)</em></small>
-        <small class="text-muted pull-left"> Criado por: Filipe Prado em 03/11/2016 as 15:26</small>
-      </div>
+      <% end %>
     </div>
+      <div class="col-md-4 col-sm-12">
+        <div class="panel panel-default">
+          <div class="panel-heading text-center">Categorias</div>
+          <div class="list-group">
+            <% Category.all.each do |category| %>
+            <li class="list-group-item">
+              <%= link_to category.name %>
+
+            </li>
+            <% end %>
+          </div>
+        </div>
+      </div>
   </div>
 </div>
