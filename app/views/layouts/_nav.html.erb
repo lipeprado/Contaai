@@ -22,10 +22,10 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
+
         <% if user_signed_in? %>
-        
-        <li><%= link_to 'Editar Conta', edit_user_registration_path %></li>
-          <li><%= link_to 'Sair', destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to "Olá, #{current_user.name}", edit_user_registration_path %></li>
+        <li><%= link_to 'Sair', destroy_user_session_path, method: :delete %></li>
 
         <% else %>
         <li><%= link_to 'Cadastrar', new_user_registration_path %></li>

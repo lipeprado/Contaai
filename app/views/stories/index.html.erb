@@ -14,7 +14,7 @@
         <br>
         <br>
         <%= link_to 'Caraca! Que Historia Incrível', like_story_path(story), method: :put, class: "btn btn-success btn-xs" %><span class="text-success">( <%= story.get_upvotes.size %> )</span>
-        <%= link_to 'Acho que é Mentira!', like_story_path(story), method: :put, class: "btn btn-warning btn-xs" %>
+        <%= link_to 'Acho que é Mentira!', dislike_story_path(story), method: :put, class: "btn btn-warning btn-xs" %>
         <span class="text-success"> ( <%= story.get_downvotes.size %> )</span>
 
         <a href="#" class="btn btn-link btn-xs">Comentarios</a><small><em>(330)</em></small>
