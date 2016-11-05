@@ -1,5 +1,8 @@
 class Story < ActiveRecord::Base
-    ratyrate_rateable "gostei", "mentira"
+  validates :title,  length: { minimum: 2 }, presence: true
+  validates :body,  length: { minimum: 30 }, presence: true
+
+  ratyrate_rateable "gostei", "mentira"
   acts_as_votable
   belongs_to :category
   belongs_to :user
@@ -13,4 +16,6 @@ class Story < ActiveRecord::Base
   def self.random
     limit(5).order("RANDOM()")
   end
+
+
 end

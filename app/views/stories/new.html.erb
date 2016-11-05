@@ -1,16 +1,28 @@
 <div class="container">
   <div class="col-md-12">
     <div class="form-area">
+      <% if @story.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@story.errors.count, "erro") %>. Corrija os erros para continuar:</h2>
+
+        <ul>
+          <% @story.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
       <h3>Crie Sua Historia</h3>
       <%= form_for @story do |f| %>
       <div class="form-group">
         <%= f.text_field :title, class: "form-control", placeholder: 'Titulo da sua historia...' %>
       </div>
-        <div class="form-group">
-          <%= f.text_area :body, rows: 10, class: "form-control", placeholder: 'Conte-nos sua historia...' %>
-        </div>
-          <%= f.submit class: "btn btn-primary btn-block" %>
-      <% end %>
+      <div class="form-group">
+        <%= f.text_area :body, rows: 10, class: "form-control", placeholder: 'Conte-nos sua historia...' %>
+      </div>
+      <%= f.submit class: "btn btn-primary btn-block" %>
+
     </div>
   </div>
+    <% end %>
 </div>
