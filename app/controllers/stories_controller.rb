@@ -8,7 +8,7 @@ class StoriesController < ApplicationController
     # Verifica se o usuário entrou com keywords
   if params[:keywords].present?
     # Diz ao elastickick para pesquisar as keyrwords nos campos name e description
-    @stories = Story.search params[:keywords], fields: [:title]
+    @stories = Story.search params[:keywords], fields: [:title, :body]
   end
   end
 

@@ -13,6 +13,8 @@ Oque Estamos Usando:
 
 * Devise ( Login )
 
+*  ElasticSearch/searchkick
+
 * Bootstrap/BootstrapWatch ( Ui)
 
 * Acts_as_votable ( vote System)
