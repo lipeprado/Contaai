@@ -19,6 +19,7 @@ gem 'ratyrate', '~> 1.2.2.alpha'
 gem 'faker', '~> 1.6', '>= 1.6.6'
 gem 'font-awesome-rails', '~> 4.7'
 gem 'searchkick'
+gem 'twitter-typeahead-rails'
 
 
 gem 'sdoc', '~> 0.4.0', group: :doc

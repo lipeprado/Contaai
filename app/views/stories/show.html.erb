@@ -12,14 +12,6 @@
   </p>
   <br>
   <br>
-
-
-
-
-
-
-
-
 <small class="text-muted pull-left" style="margin-top: 15px;"> Criado por: <%= @story.user.name %> na <%= @story.created_at.strftime('%A, %e %B %Y') %></small>
 
   <br>
@@ -36,7 +28,35 @@
   <span class="text-success"> ( <%= @story.get_downvotes.size %> )</span>
   <a href="#" class="btn btn-primary btn-xs">Comentarios</a><small><em>(330)</em></small>
 </div>
+</div>
+<br>
+<br>
+<br>
+<div class="container">
+  <h4>Comentarios:</h4>
+</div>
 
-
-
+<hr>
+<div class="container">
+  <h3>Confira outras Historias</h3>
+<div class="row">
+  <div class="col-md-4">
+      <h3 class="story-title"> <%= link_to @random_story.title, story_path(@random_story) %></h3>
+      <p class="story-body">
+        <%= @random_story.body %>
+      </p>
+  </div>
+  <div class="col-md-4">
+      <h3 class="story-title"> <%= link_to @another_random_story.title, story_path(@another_random_story) %></h3>
+      <p class="story-body">
+        <%= @another_random_story.body %>
+      </p>
+  </div>
+  <div class="col-md-4">
+      <h3 class="story-title"> <%= link_to @three_random_story.title, story_path(@three_random_story) %></h3>
+      <p class="story-body">
+        <%= @three_random_story.body %>
+      </p>
+  </div>
+</div>
 </div>

@@ -1,10 +1,13 @@
 class Story < ActiveRecord::Base
   searchkick
+
   validates :title,  length: { minimum: 2 }, presence: true
   validates :body,  length: { minimum: 30 }, presence: true
 
   ratyrate_rateable "gostei", "mentira"
   acts_as_votable
+
+
   belongs_to :category
   belongs_to :user
   has_many :comments

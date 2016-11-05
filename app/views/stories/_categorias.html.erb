@@ -1,0 +1,13 @@
+<div class="col-md-4 col-sm-12">
+  <div class="panel panel-default">
+    <div class="panel-heading text-center">Categorias</div>
+    <div class="list-group">
+      <% Category.all.each do |category| %>
+      <li class="list-group-item">
+        <%= link_to category.name, category_path(category) %>
+
+      </li>
+      <% end %>
+    </div>
+  </div>
+</div>
