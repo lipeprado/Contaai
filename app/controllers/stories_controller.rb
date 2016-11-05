@@ -3,13 +3,10 @@ class StoriesController < ApplicationController
 
 
   def index
-
     @stories = Story.all.order(created_at: :desc).page(params[:page]).per(5)
-    # Verifica se o usuário entrou com keywords
-  if params[:keywords].present?
-    # Diz ao elastickick para pesquisar as keyrwords nos campos name e description
+      if params[:keywords].present?
     @stories = Story.search params[:keywords], fields: [:title]
-  end
+      end
   end
 
   def new
@@ -35,6 +32,27 @@ class StoriesController < ApplicationController
     @three_random_story = Story.where.not(id: @story, id: @random_story, id: @another_random_story).order("RANDOM()").first
   end
 
+
+  def edit
+    @story = Story.find(params[:id])
+  end
+
+  def update
+
+    @story = Story.find(params[:id])
+    if @story.update(story_params)
+      redirect_to @story
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+      @story = Story.find(params[:id])
+    @story.destroy
+    redirect_to root_path
+  end
+
   def upvote
     @story = Story.find(params[:id])
     @story.upvote_by(current_user)
@@ -47,20 +65,11 @@ class StoriesController < ApplicationController
     redirect_to :back
   end
 
-  # def autocomplete
-  #   render json: Story.search(params[:query], {
-  #     fields: ["title^5", "body"],
-  #     match: :word_start,
-  #     limit: 10,
-  #     load: false,
-  #     misspellings: {below: 5}
-  #   }).map(&:title)
-  # end
 
   private
 
   def story_params
-    params.require(:story).permit(:body, :title)
+    params.require(:story).permit(:body, :title, :category_id)
   end
 
 

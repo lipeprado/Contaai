@@ -1,0 +1,20 @@
+<%= form_for @story do |f| %>
+<div class="form-group">
+    <%= f.text_field :title, class: "form-control", placeholder: 'Titulo da sua historia...' %>
+</div>
+<div class="form-group">
+    <%= f.text_area :body, rows: 10, class: "form-control", placeholder: 'Conte-nos sua historia...' %>
+</div>
+<div class="form-group">
+    <%= f.label :category_id %>
+    <%= f.select(:category_id, Category.all.map{ |f| [f.name, f.id] }, {}, { class: "form-control", id: "select" }) %>
+</div>
+<%= f.submit class: "btn btn-primary btn-block" %>
+<%= link_to 'Cancelar', root_path, class: "btn btn-xs btn-warning btn-block" %>
+
+</div>
+<br>
+<br>
+
+</div>
+<% end %>
