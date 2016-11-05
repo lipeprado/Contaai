@@ -14,6 +14,10 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'bootswatch-rails', '~> 3.3', '>= 3.3.5'
 gem 'acts_as_votable'
+gem 'kaminari', '~> 0.16.3'
+gem 'ratyrate', '~> 1.2.2.alpha'
+gem 'faker', '~> 1.6', '>= 1.6.6'
+gem 'font-awesome-rails', '~> 4.7'
 
 
 gem 'sdoc', '~> 0.4.0', group: :doc

@@ -1,16 +1,42 @@
 <div class="container">
-
+<small class="pull-right"> <%= rating_for @story, 'gostei', star: 5, enable_half: true, disable_after_rate: false %></small>
+<small class="pull-right">Dê sua nota: </small>
+<br>
+<br>
 <div class="well">
-  <%= @story.body %>
-  <br>
-  <br>
-
-  <a href="#" class="btn btn-success btn-xs">Caraca que Historia Incrível</a><span class="text-success">(1240)</span>
-  <a href="#" class="btn btn-warning btn-xs">Acho que é Mentira</a><span class="text-warning">(28)</span>
-  <a href="#" class="btn btn-link btn-xs">Comentarios</a><small><em>(330)</em></small>
-  <p>
-    <small class="text-muted pull-left" style="margin-top: 15px;"> Criado por: <%= @story.user.name %> na <%= @story.created_at.strftime('%A, %e %B %Y') %></small>
+  <h1 class="story-title">
+    <%= @story.title %>
+  </h1>
+  <p class="story-body">
+    <%= @story.body %>
   </p>
   <br>
+  <br>
+
+
+
+
+
+
+
+
+<small class="text-muted pull-left" style="margin-top: 15px;"> Criado por: <%= @story.user.name %> na <%= @story.created_at.strftime('%A, %e %B %Y') %></small>
+
+  <br>
 </div>
+
+<div class="pull-left">
+  <%= link_to 'Voltar', root_path, class: "btn btn-info btn-xs" %>
+</div>
+
+
+<div class="pull-right">
+  <%= link_to 'Caraca! Que Historia Incrível', like_story_path(@story), method: :put, class: "btn btn-success btn-xs" %><span class="text-success">( <%= @story.get_upvotes.size %> )</span>
+  <%= link_to 'Acho que é Mentira!', dislike_story_path(@story), method: :put, class: "btn btn-warning btn-xs" %>
+  <span class="text-success"> ( <%= @story.get_downvotes.size %> )</span>
+  <a href="#" class="btn btn-primary btn-xs">Comentarios</a><small><em>(330)</em></small>
+</div>
+
+
+
 </div>

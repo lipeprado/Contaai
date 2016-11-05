@@ -12,9 +12,9 @@
       <% @stories.each do |story| %>
       <div class="well">
 
-        <i class="fa fa-comments-o pull-right"> <%= story.get_downvotes.size %></i>
+         <i class="fa fa-thumbs-o-up pull-right"> <%= story.get_upvotes.size %></i>
         <i class="fa fa-thumbs-o-down pull-right"> <%= story.get_downvotes.size %></i>
-        <i class="fa fa-thumbs-o-up pull-right"> <%= story.get_upvotes.size %></i>
+        <i class="fa fa-comments-o pull-right"> <%= story.get_downvotes.size %></i>
 
         <h1 class="story-title"><%= story.title %> </h1><span class="label label-primary"><%= story.category.name %></span>
 
@@ -46,5 +46,4 @@
       </div>
     </div>
   </div>
-  <%= paginate @stories %>
 </div>

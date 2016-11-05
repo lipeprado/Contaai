@@ -1,18 +1,22 @@
 class StoriesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
+
+
   def index
-    @stories = Story.all.order('created_at DESC')
+    @stories = Story.all.order(created_at: :desc).page(params[:page]).per(5)
   end
 
   def new
     @story = Story.new
   end
+
+
   def create
     @story = Story.new(story_params)
     @story.user = current_user
     if @story.save
       redirect_to @story
-    elsif
+    else
       flash[:danger] = @story.errors.full_messages.to_sentence
       render :new
     end
@@ -33,10 +37,12 @@ class StoriesController < ApplicationController
     @story.downvote_by(current_user)
     redirect_to :back
   end
+
+
   private
 
   def story_params
-    params.require(:story).permit(:body)
+    params.require(:story).permit(:body, :title)
   end
 
 

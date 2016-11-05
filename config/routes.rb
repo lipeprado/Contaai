@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post '/rate' => 'rater#create', :as => 'rate'
   devise_for :users
 
   resources :stories do
@@ -9,4 +10,8 @@ Rails.application.routes.draw do
   end
 
   root 'stories#index'
+
+  get '/topstories', to: 'pages#topstories', as: 'topstories'
+  get '/randomstories', to: 'pages#randomstories', as: 'randomstories'
+  get 'category/:id', to: 'categories#show', as: 'category'
 end

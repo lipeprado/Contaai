@@ -7,12 +7,13 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-romance = Category.create(name: "Romance")
-viagem = Category.create(name: "Viagem")
-balada = Category.create(name: "Balada")
-restaurante = Category.create(name: "Restaurante")
-comedia = Category.create(name: "Comédia")
-futebol = Category.create(name: "Futebol")
-escola = Category.create(name: "Escola")
-terror = Category.create(name: "Terror")
-porn = Category.create(name: "Pornô")
+10.times do
+  Category.create(name: Faker::Book.genre)
+end
+
+user = User.create(email: "lipe@example.com", password: "123456", name: "Filipe Prado")
+user = User.create(email: "bina@example.com", password: "123456", name: "Sabrina Fernandes")
+
+30.times do
+  Story.create(body: Faker::Hipster.paragraph(6), title: Faker::Book.title, user_id: rand(1..2), category_id: rand(1..9))
+end
