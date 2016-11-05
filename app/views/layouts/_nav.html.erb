@@ -15,8 +15,19 @@
         <li class=<%= is_active?(topstories_path) %> ><%= link_to 'Top 5', topstories_path %><li>
         <li class=<%= is_active?(randomstories_path) %> ><%= link_to 'Historias Aleatorias', randomstories_path %></li>
       </ul>
+        <div class="navbar-form navbar-left">
 
-    
+
+      <form role="form" action="/">
+
+        <input type="text" class="form-control" placeholder="Ex: Marvel" name="keywords">
+
+        <button class="btn btn-primary" type="submit">Procurar</button>
+
+      </form>
+
+        </div>
+
 
       <ul class="nav navbar-nav navbar-right">
 

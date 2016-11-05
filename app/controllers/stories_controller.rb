@@ -3,7 +3,13 @@ class StoriesController < ApplicationController
 
 
   def index
+
     @stories = Story.all.order(created_at: :desc).page(params[:page]).per(5)
+    # Verifica se o usuário entrou com keywords
+  if params[:keywords].present?
+    # Diz ao elastickick para pesquisar as keyrwords nos campos name e description
+    @stories = Story.search params[:keywords], fields: [:title]
+  end
   end
 
   def new
