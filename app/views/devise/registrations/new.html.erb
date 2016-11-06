@@ -1,32 +1,28 @@
-<h2>Sign up</h2>
+<div class="box-cadastro">
 
+
+<h2 class="text-center text-info">Cadastrar</h2>
+<hr>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
+  <div class="form-group">
+    <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: 'Seu Nome Completo' %>
   </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+  <div class="form-group">
+    <%= f.email_field :email, class: "form-control", placeholder: 'Seu Email' %>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+  <div class="form-group">
+    <%= f.password_field :password, autocomplete: "off", class: "form-control",  placeholder: 'Sua Senha ( minimo 6 caracteres )' %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div class="form-group">
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control",  placeholder: 'Sua Senha ( minimo 6 caracteres )' %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Cadastrar", class: "btn btn-default btn-block" %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>

@@ -1,17 +1,37 @@
+html, body{
+  line-height: 1.5;
+  font-family: 'Open sans', sans-serif;
+  font-size: 1.1rem;
+  color: #c3c3c3;
+}
+
+h1, h2, h3, h4{
+  font-family: 'Montserrat', serif;
+  font-size: 2.4rem;
+}
+
+
 h1.story-title{
   margin: 0 0 10px 0;
 }
 
+.box-cadastro{
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
 
 .logo{
   font-weight: 600;
-  font-family: monospace;
-  color: #158CBA !important;
+  font-family: sans-serif;
+  color: gray !important;
+}
+
+.img-user{
+  height: 100%;
+  border: 1px solid gray;
 }
 .random-story{
   border: 1px solid #c9c9c9;
   padding: 10px;
-}
-.boxbig{
-   background-color: rgba(77, 117, 177, .1);
 }
