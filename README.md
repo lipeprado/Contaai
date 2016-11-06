@@ -25,6 +25,10 @@ Oque Estamos Usando:
 
 * FontAwesome ( Icones )
 
+* Omniauth Facebook ( Login via Facebook )
+
+* Froala Editor (wysiwyg)
+
 
 
 ## **Em desenvolvimento**
@@ -34,3 +38,5 @@ Fique a vontade para Ajudar!
 ### TO DO
 
 * Sistema de categorias na pagina Top 5 não identifica as Top5 historias de cada categoria!
+
+* Internacionalização com Bugs *(ex: datas e horas)*
