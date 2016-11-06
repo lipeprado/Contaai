@@ -12,9 +12,8 @@
         <h1 class="story-title">
             <%= @story.title %>
         </h1>
-        <p class="story-body">
-            <%= @story.body %>
-
+        <p class="story-body froala-editor">
+            <%= simple_format(@story.body) %>
         </p>
         <br>
         <br>

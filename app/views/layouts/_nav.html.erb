@@ -27,8 +27,10 @@
       <ul class="nav navbar-nav navbar-right">
 
         <% if user_signed_in? %>
-
+        <% if current_user.image.present? %><%= image_tag(current_user.image, size: "50", class: "pull-left") %>
+        <% end %>
         <li><%= link_to "Olá, #{current_user.name}", edit_user_registration_path %></li>
+
         <li><%= link_to 'Sair', destroy_user_session_path, method: :delete %></li>
 
         <% else %>

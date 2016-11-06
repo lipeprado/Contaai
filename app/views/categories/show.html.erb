@@ -21,7 +21,7 @@
         <small class="text-muted"><%= story.user.name %> | <%= story.created_at.strftime('%A, %e %B %Y') %></small>
         <br>
         <br>
-        <p class="story-body"><%= story.body %></p>
+        <p class="story-body"><%= simple_format(story.body) %></p>
         <div class="btn-group" role="group" aria-label="...">
           <%= link_to "Ver Historia", story_path(story), class: "btn btn-info btn-xs" %>
           <%= link_to 'Caraca! Que Historia Incrível', like_story_path(story), method: :put, class: "btn btn-success btn-xs" %>

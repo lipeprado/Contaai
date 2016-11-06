@@ -3,7 +3,7 @@
     <%= f.text_field :title, class: "form-control", placeholder: 'Titulo da sua historia...' %>
 </div>
 <div class="form-group">
-    <%= f.text_area :body, rows: 10, class: "form-control", placeholder: 'Conte-nos sua historia...' %>
+    <%= f.text_area :body, rows: 10, id: "wysiwyg", class: "form-control", placeholder: 'Conte-nos sua historia...' %>
 </div>
 <div class="form-group">
     <%= f.label :category_id %>
@@ -18,3 +18,31 @@
 
 </div>
 <% end %>
+
+<script type="text/javascript">
+
+$('#wysiwyg').froalaEditor({
+    inlineMode: false,
+    heightMin: '200px',
+    toolbarButtons: [
+        'bold',
+        'italic',
+        'underline',
+        'formatBlock',
+        'paragraphFormat',
+        'formatOL',
+        'formatUL',
+        'insertLink',
+        'insertTable',
+        'undo',
+        'redo',
+        'align',
+        'insertUnorderedList',
+        'insertOrderedList',
+        'outdent',
+        'indent',
+        'createLink',
+        'html',
+    ]
+})
+</script>

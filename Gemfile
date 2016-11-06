@@ -20,6 +20,9 @@ gem 'faker', '~> 1.6', '>= 1.6.6'
 gem 'font-awesome-rails', '~> 4.7'
 gem 'searchkick'
 gem 'twitter-typeahead-rails'
+gem 'omniauth'
+gem 'omniauth-facebook', '~> 4.0'
+gem 'wysiwyg-rails', '~> 2.3', '>= 2.3.5'
 
 
 gem 'sdoc', '~> 0.4.0', group: :doc

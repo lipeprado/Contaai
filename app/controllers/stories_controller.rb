@@ -10,6 +10,8 @@ class StoriesController < ApplicationController
       end
   end
 
+  
+
   def new
     @story = Story.new
   end

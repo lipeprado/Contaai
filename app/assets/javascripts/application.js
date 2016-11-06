@@ -14,6 +14,7 @@
 //= require bootstrap-sprockets
 //= require jquery.raty
 //= require ratyrate
+//= require froala_editor.min.js
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .

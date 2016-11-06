@@ -1,4 +1,9 @@
 class PagesController < ApplicationController
+
+  def home
+
+  end
+  
   def topstories
     @stories = Story.top
   end
