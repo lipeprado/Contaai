@@ -2,7 +2,7 @@
 
 
     <small class="pull-right">
-        <%= rating_for @story, 'gostei', star: 5, enable_half: true, disable_after_rate: false %>
+        <%= rating_for @story, 'gostei', star: 10, enable_half: true, disable_after_rate: false %>
         <%= @story.average("gostei").nil? ? '0' : @story.average("gostei").avg.round(1) %>
     </small>
 
@@ -53,27 +53,39 @@
 <hr>
 <div class="container">
     <h3>Confira outras Historias</h3>
-    <div class="row">
-        <div class="col-md-4">
+    <div class="row boxbig">
+        <div class="col-md-4 box1">
+          <div class="random-story">
+
+
             <h3 class="story-title">
                 <%= link_to @random_story.title, story_path(@random_story) %></h3>
             <p class="story-body">
                 <%= @random_story.body %>
             </p>
+            </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 box2">
+          <div class="random-story">
+
+
             <h3 class="story-title">
                 <%= link_to @another_random_story.title, story_path(@another_random_story) %></h3>
             <p class="story-body">
                 <%= @another_random_story.body %>
             </p>
+            </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 box3">
+          <div class="random-story">
+
+
             <h3 class="story-title">
                 <%= link_to @three_random_story.title, story_path(@three_random_story) %></h3>
             <p class="story-body">
                 <%= @three_random_story.body %>
             </p>
+            </div>
         </div>
     </div>
 </div>

@@ -1,5 +1,5 @@
 class Story < ActiveRecord::Base
-  searchkick
+  searchkick word_start: [:title, :body]
 
   validates :title,  length: { minimum: 2 }, presence: true
   validates :body,  length: { minimum: 30 }, presence: true

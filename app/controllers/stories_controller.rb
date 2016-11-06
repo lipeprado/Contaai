@@ -1,11 +1,12 @@
 class StoriesController < ApplicationController
+  before_action :find_story, only: [:edit, :update, :destroy, :show]
   before_action :authenticate_user!, only: [:new, :create]
 
 
   def index
     @stories = Story.all.order(created_at: :desc).page(params[:page]).per(5)
       if params[:keywords].present?
-    @stories = Story.search params[:keywords], fields: [:title]
+    @stories = Story.search params[:keywords], fields: [:title, :body]
       end
   end
 
@@ -26,7 +27,6 @@ class StoriesController < ApplicationController
   end
 
   def show
-    @story = Story.find(params[:id])
     @random_story = Story.where.not(id: @story).order("RANDOM()").first
     @another_random_story = Story.where.not(id: @story, id: @random_story).order("RANDOM()").first
     @three_random_story = Story.where.not(id: @story, id: @random_story, id: @another_random_story).order("RANDOM()").first
@@ -34,12 +34,10 @@ class StoriesController < ApplicationController
 
 
   def edit
-    @story = Story.find(params[:id])
   end
 
   def update
 
-    @story = Story.find(params[:id])
     if @story.update(story_params)
       redirect_to @story
     else
@@ -48,7 +46,6 @@ class StoriesController < ApplicationController
   end
 
   def destroy
-      @story = Story.find(params[:id])
     @story.destroy
     redirect_to root_path
   end
@@ -60,7 +57,6 @@ class StoriesController < ApplicationController
   end
 
   def downvote
-    @story = Story.find(params[:id])
     @story.downvote_by(current_user)
     redirect_to :back
   end
@@ -72,5 +68,8 @@ class StoriesController < ApplicationController
     params.require(:story).permit(:body, :title, :category_id)
   end
 
+  def find_story
+    @story = Story.find(params[:id])
+  end
 
 end

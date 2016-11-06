@@ -1,4 +1,5 @@
----
+# encoding: UTF-8
+# pt-BR translations for Devise
 pt-BR:
   activerecord:
     errors:
@@ -17,7 +18,6 @@ pt-BR:
     - Sex
     - Sáb
     abbr_month_names:
-    -
     - Jan
     - Fev
     - Mar
