@@ -46,6 +46,8 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bootstrap-social-rails (4.12.0)
+      railties (>= 3.1)
     bootswatch-rails (3.3.5)
       railties (>= 3.1)
     builder (3.2.2)
@@ -217,6 +219,7 @@ PLATFORMS
 DEPENDENCIES
   acts_as_votable
   bootstrap-sass (~> 3.3, >= 3.3.7)
+  bootstrap-social-rails
   bootswatch-rails (~> 3.3, >= 3.3.5)
   byebug
   coffee-rails (~> 4.1.0)

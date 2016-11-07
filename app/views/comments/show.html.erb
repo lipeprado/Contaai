@@ -1,0 +1,15 @@
+<div class="well">
+
+    <p class="story-body froala-editor">
+        <%= simple_format(@comment.body) %>
+    </p>
+    <br>
+    <br>
+    <small class="text-muted pull-left" style="margin-top: 15px;">
+        Criado por:
+        <%= @comment.user.name %>
+        na
+        <%= @comment.created_at.strftime('%A, %e %B %Y') %></small>
+
+    <br>
+</div>

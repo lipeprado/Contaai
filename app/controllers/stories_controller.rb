@@ -10,7 +10,7 @@ class StoriesController < ApplicationController
       end
   end
 
-  
+
 
   def new
     @story = Story.new
@@ -29,6 +29,7 @@ class StoriesController < ApplicationController
   end
 
   def show
+    @comments = Comment.where(story_id: @story.id).order("created_at DESC")
     @random_story = Story.where.not(id: @story).order("RANDOM()").first
     @another_random_story = Story.where.not(id: @story, id: @random_story).order("RANDOM()").first
     @three_random_story = Story.where.not(id: @story, id: @random_story, id: @another_random_story).order("RANDOM()").first

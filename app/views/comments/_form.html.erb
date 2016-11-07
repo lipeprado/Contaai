@@ -1,0 +1,23 @@
+<%= form_for([@story, @comment]) do |f| %>
+  <% if @comment.errors.any? %>
+    <div class="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "erro") %> Corrija os erros para continuar:</h2>
+      <ul>
+        <% @review.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      </ul>
+    </div>
+  <% end %>
+  <% end %>
+<div class="form-group">
+    <%= f.text_area :body, class: "form-control", placeholder: 'Seu Comentario...' %>
+</div>
+<%= f.submit class: "btn btn-primary btn-block" %>
+<%= link_to 'Cancelar', root_path, class: "btn btn-xs btn-warning btn-block" %>
+
+</div>
+<br>
+<br>
+
+</div>
+<% end %>

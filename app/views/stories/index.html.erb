@@ -13,16 +13,18 @@
       <% @stories.each do |story| %>
       <div class="well">
 
-        <i class="fa fa-comments-o pull-right"> <%= story.get_downvotes.size %></i>
+
+
+        <i class="fa fa-comments-o pull-right"> <%= story.comments.size %></i>
         <i class="fa fa-thumbs-o-down pull-right"> <%= story.get_downvotes.size %></i>
         <i class="fa fa-thumbs-o-up pull-right"> <%= story.get_upvotes.size %></i>
 
-        <h1 class="story-title"><%= story.title %> </h1><span class="label label-primary"><%= story.category.name %></span>
+        <h1 class="story-title"><%= link_to story.title, story_path(story) %> </h1><span class="label label-primary"><%= story.category.name %></span>
 
         <small class="text-muted"><%= story.user.name %> | <%= story.created_at.strftime('%A, %e %B %Y') %></small>
         <br>
         <br>
-        <p class="story-body"><%= simple_format(story.body) %></p>
+        <div class="story-body"><%= simple_format(story.body) %></div>
         <div class="btn-group" role="group" aria-label="...">
           <%= link_to "Ver Historia", story_path(story), class: "btn btn-info btn-xs" %>
           <%= link_to 'Caraca! Que Historia Incrível', like_story_path(story), method: :put, class: "btn btn-success btn-xs" %>

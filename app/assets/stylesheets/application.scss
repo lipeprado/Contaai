@@ -16,26 +16,19 @@
  *= require_tree .
  *= require_self
  */
-
- @import "font-awesome";
- //Import bootstrap-sprockets
- @import "bootstrap-sprockets";
-
- // Import cerulean variables
- @import "bootswatch/readable/variables";
-
- // Then bootstrap itself
- @import "bootstrap";
-
- // Bootstrap body padding for fixed navbar
+@import "font-awesome";
+//Import bootstrap-sprockets
+@import "bootstrap-sprockets";
+// Import cerulean variables
+@import "bootswatch/readable/variables";
+// Then bootstrap itself
+@import "bootstrap";
+// Bootstrap body padding for fixed navbar
 // body { padding-top: 60px; }
-
- // And finally bootswatch style itself
- @import "bootswatch/readable/bootswatch";
-
-
- .link_category{
-   text-decoration: none !important;
-   color: white !important;
-
- }
+// And finally bootswatch style itself
+@import "bootswatch/readable/bootswatch";
+// @import "bootstrap-social";
+.link_category {
+    text-decoration: none !important;
+    color: white !important;
+}

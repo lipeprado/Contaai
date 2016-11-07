@@ -23,6 +23,7 @@ gem 'twitter-typeahead-rails'
 gem 'omniauth'
 gem 'omniauth-facebook', '~> 4.0'
 gem 'wysiwyg-rails', '~> 2.3', '>= 2.3.5'
+gem 'bootstrap-social-rails'
 
 
 gem 'sdoc', '~> 0.4.0', group: :doc

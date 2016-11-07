@@ -47,9 +47,20 @@
 <br>
 <div class="container">
     <h4>Comentarios:</h4>
+    <%= link_to "Escreva um Comentario", new_story_comment_path(@story) %>
+    <% if @comments.blank? %>
+      <span>Nenhum Comentario Ainda...</span>
+      <% else %>
+      <% @comments.each do |comment| %>
+      <p>
+        <%= comment.body %>
+      </p>
+    <% end %>
+    <% end %>
 </div>
 
 <hr>
+<br>
 <div class="container">
     <h3>Confira outras Historias</h3>
     <div class="row boxbig">

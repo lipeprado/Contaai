@@ -13,6 +13,10 @@ h1, h2, h3, h4{
 
 h1.story-title{
   margin: 0 0 10px 0;
+  text-decoration: none;
+  a{
+    text-decoration: none;
+  }
 }
 
 .box-cadastro{
@@ -26,12 +30,34 @@ h1.story-title{
   font-family: sans-serif;
   color: gray !important;
 }
-
+.story-body{
+  font-size: 1.5rem !important;
+  line-height: 1.75 !important;
+  color: rgb(139, 139, 139) !important;
+  font-family: sans-serif;
+}
 .img-user{
   height: 100%;
-  border: 1px solid gray;
+  border: 2px solid gray;
+  border-radius: 100%;
+  margin-top: 8px;
 }
 .random-story{
   border: 1px solid #c9c9c9;
   padding: 10px;
+}
+
+.facebtn{
+  background-color: #3b5998 !important;
+  color: white !important;
+  &:hover{
+    color: white !important;
+  }
+}
+
+.iface{
+  color: white !important;
+  &:hover{
+    color: white !important;
+  }
 }
