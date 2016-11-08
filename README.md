@@ -31,7 +31,7 @@ Oque Estamos Usando:
 
 
 
-## **Em desenvolvimento**
+## **Pausado**
 Fique a vontade para Ajudar!
 
 
