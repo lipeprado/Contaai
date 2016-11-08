@@ -1,101 +1,101 @@
 <div class="container">
 
-
-    <small class="pull-right">
-        <%= rating_for @story, 'gostei', star: 5, enable_half: true, disable_after_rate: false %>
-        <%= @story.average("gostei").nil? ? '0' : @story.average("gostei").avg.round(1) %>
-    </small>
-
-    <br>
-    <br>
-    <div class="well">
-        <h1 class="story-title">
-            <%= @story.title %>
-        </h1>
-        <p class="story-body froala-editor">
-            <%= simple_format(@story.body) %>
-        </p>
+    <div class="col-md-8">
+        <small class="pull-right"><%= rating_for @story, 'gostei', star: 5, enable_half: true, disable_after_rate: false %></small>
         <br>
-        <br>
-        <small class="text-muted pull-left" style="margin-top: 15px;">
-            Criado por:
-            <%= @story.user.name %>
-            na
-            <%= @story.created_at.strftime('%A, %e %B %Y') %></small>
+        <div class="well">
+            <h1 class="story-title"><%= @story.title %></h1>
+            <small class="text-muted pull-left">
+                Criado por:
+                <%= @story.user.name %>
+                na
+                <%= @story.created_at.strftime('%A, %e %B %Y') %></small>
 
-        <br>
+            <br>
+            <br>
+            <div class="story-body froala-editor">
+                <%= simple_format(@story.body) %>
+                <div>
+
+                    <br>
+
+                    <br>
+                </div>
+
+                <div class="btn-group">
+                    <%= link_to 'Voltar', root_path, class: "btn btn-primary btn-xs" %>
+                    <%= link_to 'Caraca! Que Historia Incrível', like_story_path(@story), method: :put, class: "btn btn-success btn-xs" %>
+                    <%= link_to 'Acho que é Mentira!', dislike_story_path(@story), method: :put, class: "btn btn-warning btn-xs" %>
+                    <% if @story.user == current_user %>
+                    <%= link_to 'Editar', edit_story_path(@story), class: "btn btn-default btn-xs" %>
+                    <%= link_to 'Deletar', story_path(@story), method: :delete, data:{ confirm: "Você vai deletar uma historia, tem certeza?" }, class: "btn btn-danger btn-xs" %>
+                    <% end %>
+
+                </div>
+
+            </div>
+        </div>
     </div>
 
-    <div class="btn-group pull-left">
-        <% if @story.user == current_user %>
-        <%= link_to 'Editar', edit_story_path(@story), class: "btn btn-default btn-xs" %>
-        <%= link_to 'Deletar', story_path(@story), method: :delete, data:{ confirm: "Você vai deletar uma historia, tem certeza?" }, class: "btn btn-danger btn-xs" %>
-        <% end %>
+    <div class="row">
+          <div class="col-md-4">
+            <div class="random-story">
 
+              <span class="label label-primary label-xs"><%= @story.category.name %></span>
+              <hr>
+              <h4 class="story-title">
+                    <%= link_to @random_story.title, story_path(@random_story) %></h4>
+                <p class="story-body">
+                    <%= simple_format(truncate(@random_story.body, length: 150)) %>
+                </p>
+            </div>
+        </div>
+        <br>
+        <div class="col-md-4">
+            <div class="random-story">
+
+                <span class="label label-primary label-xs"><%= @story.category.name %></span>
+                <hr>
+                <h4 class="story-title">
+                    <%= link_to @another_random_story.title, story_path(@another_random_story) %></h4>
+                <p class="story-body">
+                    <%= simple_format(truncate(@another_random_story.body, length: 150)) %>
+                </p>
+            </div>
+        </div>
     </div>
-
-    <div class="btn-group pull-right" role="group" aria-label="...">
-        <%= link_to 'Voltar', root_path, class: "btn btn-primary btn-xs" %>
-        <%= link_to 'Caraca! Que Historia Incrível', like_story_path(@story), method: :put, class: "btn btn-success btn-xs" %>
-        <%= link_to 'Acho que é Mentira!', dislike_story_path(@story), method: :put, class: "btn btn-warning btn-xs" %>
-
-    </div>
-
 </div>
 <br>
 <br>
 <br>
 <div class="container">
     <h4>Comentarios:</h4>
-    <%= link_to "Escreva um Comentario", new_story_comment_path(@story) %>
     <% if @comments.blank? %>
-      <span>Nenhum Comentario Ainda...</span>
-      <% else %>
-      <% @comments.each do |comment| %>
-      <p>
+    <span>Nenhum Comentario Ainda...</span>
+<% else %>
+    <% @comments.each do |comment| %>
+    <small class="text-muted label label-primary"><%= comment.user.name %> disse:</small>
+    <div class="comment-title">
         <%= comment.body %>
-      </p>
-    <% end %>
-    <% end %>
-</div>
-
-<hr>
-<br>
-<div class="container">
-    <h3>Confira outras Historias</h3>
-    <div class="row boxbig">
-        <div class="col-md-4 box1">
-          <div class="random-story">
-
-
-            <h3 class="story-title">
-                <%= link_to @random_story.title, story_path(@random_story) %></h3>
-            <p class="story-body">
-                <%= simple_format(truncate(@random_story.body, length: 80)) %>
-            </p>
-            </div>
-        </div>
-        <div class="col-md-4 box2">
-          <div class="random-story">
-
-
-            <h3 class="story-title">
-                <%= link_to @another_random_story.title, story_path(@another_random_story) %></h3>
-            <p class="story-body">
-                <%= simple_format(truncate(@another_random_story.body, length: 80)) %>
-            </p>
-            </div>
-        </div>
-        <div class="col-md-4 box3">
-          <div class="random-story">
-
-
-            <h3 class="story-title">
-                <%= link_to @three_random_story.title, story_path(@three_random_story) %></h3>
-            <p class="story-body">
-                <%= simple_format(truncate(@three_random_story.body, length: 80)) %>
-            </p>
-            </div>
-        </div>
     </div>
+    <hr>
+    <% end %>
+    <% end %>
+
+    <%= link_to "Escreva um Comentario", new_story_comment_path(@story), class: "btn btn-default" %>
+
 </div>
+
+</div>
+</div>
+
+<!-- <div class="col-md-4 box3">
+    <div class="random-story">
+
+        <h3 class="story-title">
+            <%= link_to @three_random_story.title, story_path(@three_random_story) %></h3>
+        <p class="story-body">
+            <%= simple_format(truncate(@three_random_story.body, length: 80)) %>
+        </p>
+    </div>
+</div> -->

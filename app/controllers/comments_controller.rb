@@ -24,7 +24,7 @@ before_action :authenticate_user!
 
   def create
     @comment = Comment.new(comment_params)
-    @comment.user_id = current_user.id
+    @comment.user = current_user
     @comment.story_id = @story.id
 
     if @comment.save
